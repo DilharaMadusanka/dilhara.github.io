@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilhara Madusanka - Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind Configuration for Dark Mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // blue-500
+                        darkBg: '#0f172a',  // slate-900
+                        darkSurface: '#1e293b' // slate-800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Fonts and Base Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Glassmorphism for sticky header */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Nav Link Active State */
+        .nav-link.active {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-200 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full top-0 z-50 glass transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-bold tracking-tighter text-gray-900 dark:text-white">
+                Dilhara<span class="text-primary">.</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Contact</a>
+                
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon text-xl text-gray-600 dark:text-gray-300 block dark:hidden" id="theme-icon-moon"></i>
+                    <i class="ph ph-sun text-xl text-gray-600 dark:text-gray-300 hidden dark:block" id="theme-icon-sun"></i>
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center md:hidden space-x-4">
+                <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <i class="ph ph-moon text-xl text-gray-600 dark:text-gray-300 block dark:hidden"></i>
+                    <i class="ph ph-sun text-xl text-gray-600 dark:text-gray-300 hidden dark:block"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none" aria-expanded="false">
+                    <i class="ph ph-list text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-darkSurface border-t border-gray-200 dark:border-gray-700 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4 shadow-lg">
+                <a href="#home" class="mobile-nav-link text-gray-600 hover:text-primary dark:text-gray-300">Home</a>
+                <a href="#about" class="mobile-nav-link text-gray-600 hover:text-primary dark:text-gray-300">About</a>
+                <a href="#skills" class="mobile-nav-link text-gray-600 hover:text-primary dark:text-gray-300">Skills</a>
+                <a href="#projects" class="mobile-nav-link text-gray-600 hover:text-primary dark:text-gray-300">Projects</a>
+                <a href="#contact" class="mobile-nav-link text-gray-600 hover:text-primary dark:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-6">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 text-center md:text-left space-y-6">
+                    <p class="text-primary font-medium tracking-wide uppercase">Hello, World!</p>
+                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
+                        I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Dilhara Madusanka</span><br>
+                        Cybersecurity Student
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto md:mx-0">
+                        An undergraduate at the University of Vavuniya, passionate about exploring the cybersecurity path, secure software development, and UI/UX design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                        <a href="#projects" class="px-8 py-3 bg-primary hover:bg-blue-600 text-white font-medium rounded-full transition-all shadow-lg shadow-blue-500/30">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-8 py-3 border border-gray-300 dark:border-gray-600 hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary font-medium rounded-full transition-all">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <!-- Abstract Shape / Image Placeholder -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                        <img src="https://placehold.co/400x400/1e293b/ffffff?text=Dilhara" alt="Profile" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-darkSurface shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white dark:bg-darkSurface">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">About Me</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Hi, I'm Dilhara Madusanka, currently pursuing my undergraduate studies at the University of Vavuniya. My primary focus and passion lie in the field of Cybersecurity. I am actively combining my core programming skills in C, C++, C#, and Java with modern security concepts and UI/UX design to build robust, secure, and user-friendly software solutions.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Student</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">University of Vavuniya</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Security</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Cybersecurity Focus</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Backend</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">C#, Java, C, C++</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Design</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Figma UI/UX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">My Skills</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <!-- Programming Languages -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="ph ph-terminal text-primary"></i> Programming Languages
+                        </h3>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>C# (.NET, Windows Forms)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>Java (Data Structures)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>C / C++</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Other Skills -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="ph ph-wrench text-primary"></i> Tools & Concepts
+                        </h3>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>Figma (UI/UX & Prototyping)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>SQL & ADO.NET</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-medium">
+                                <span>Git & Version Control</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white dark:bg-darkSurface">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Recent Projects</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-50 dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Electrical+Shop" alt="Electrical Shop Management System" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Electrical Shop System</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A complete management system built with C# Windows Forms and SQL backend integration for CRUD operations.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">C#</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">SQL</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
+                                View Details <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-gray-50 dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=ATM+Simulator" alt="ATM Simulator" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">ATM System Simulator</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A C-based ATM logic simulator utilizing parent-child process pipes and dynamic bill generation.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">C Programming</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">OS Pipes</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
+                                View Details <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-gray-50 dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="https://placehold.co/600x400/ec4899/ffffff?text=Bit+Byte+Burger" alt="Bit Byte Burger UI" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Bit Byte Burger App UI</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A modern mobile fast-food application UI/UX prototype created with advanced Figma transitions and grid layouts.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">Figma</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">UI/UX</span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
+                                View Details <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Get In Touch</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                    <p class="mt-4 text-gray-600 dark:text-gray-400">Have a project in mind or want to collaborate? Send me a message!</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
+                    <!-- Contact Info -->
+                    <div class="md:w-1/3 space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                                <i class="ph ph-envelope-simple text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Email</h4>
+                                <a href="mailto:dilhara@example.com" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">dilhara@example.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
+                                <i class="ph ph-map-pin text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="md:w-2/3 bg-white dark:bg-darkSurface p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <form onsubmit="event.preventDefault(); alert('Form submitted successfully!');" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Your Name" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                    <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder="Your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-primary hover:bg-blue-600 text-white font-medium rounded-lg transition-all shadow-lg shadow-blue-500/30">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-darkSurface border-t border-gray-200 dark:border-gray-800 py-8">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0">
+                &copy; <span id="year"></span> Dilhara Madusanka. All rights reserved.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-darkBg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-blue-50 transition-colors">
+                    <i class="ph ph-github-logo text-xl"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-darkBg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-blue-50 transition-colors">
+                    <i class="ph ph-linkedin-logo text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Dark/Light Mode Toggle Logic ---
+        const htmlElement = document.documentElement;
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+        
+        // Check for saved user preference, else use system preference
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme === 'dark' || (!savedTheme && userPrefersDark)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        function toggleTheme() {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggles.forEach(btn => {
+            if(btn) btn.addEventListener('click', toggleTheme);
+        });
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
+            
+            if (isHidden) {
+                menuIcon.classList.remove('ph-x');
+                menuIcon.classList.add('ph-list');
+            } else {
+                menuIcon.classList.remove('ph-list');
+                menuIcon.classList.add('ph-x');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // --- Active Navigation Link highlighting based on scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Add a small offset so the highlight switches right before reaching the section
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
