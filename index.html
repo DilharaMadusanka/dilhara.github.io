@@ -6,8 +6,9 @@
     <title>Dilhara Madusanka - Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     
     <!-- Tailwind Configuration for Dark Mode -->
     <script>
@@ -80,6 +81,12 @@
             color: #3b82f6;
             font-weight: 600;
         }
+        
+        /* Iconify Alignment Fix */
+        iconify-icon {
+            display: inline-flex;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-200 antialiased selection:bg-primary selection:text-white">
@@ -101,20 +108,20 @@
                 <a href="#contact" class="nav-link text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Contact</a>
                 
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
-                    <i class="ph ph-moon text-xl text-gray-600 dark:text-gray-300 block dark:hidden" id="theme-icon-moon"></i>
-                    <i class="ph ph-sun text-xl text-gray-600 dark:text-gray-300 hidden dark:block" id="theme-icon-sun"></i>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none flex items-center justify-center" aria-label="Toggle Dark Mode">
+                    <iconify-icon icon="ph:moon-bold" class="text-xl text-gray-600 dark:text-gray-300 block dark:hidden" id="theme-icon-moon"></iconify-icon>
+                    <iconify-icon icon="ph:sun-bold" class="text-xl text-gray-600 dark:text-gray-300 hidden dark:block" id="theme-icon-sun"></iconify-icon>
                 </button>
             </nav>
 
             <!-- Mobile Menu Button -->
             <div class="flex items-center md:hidden space-x-4">
-                <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
-                    <i class="ph ph-moon text-xl text-gray-600 dark:text-gray-300 block dark:hidden"></i>
-                    <i class="ph ph-sun text-xl text-gray-600 dark:text-gray-300 hidden dark:block"></i>
+                <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none flex items-center justify-center">
+                    <iconify-icon icon="ph:moon-bold" class="text-xl text-gray-600 dark:text-gray-300 block dark:hidden"></iconify-icon>
+                    <iconify-icon icon="ph:sun-bold" class="text-xl text-gray-600 dark:text-gray-300 hidden dark:block"></iconify-icon>
                 </button>
-                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none" aria-expanded="false">
-                    <i class="ph ph-list text-2xl" id="menu-icon"></i>
+                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none flex items-center justify-center" aria-expanded="false">
+                    <iconify-icon icon="ph:list-bold" class="text-2xl" id="menu-icon"></iconify-icon>
                 </button>
             </div>
         </div>
@@ -174,19 +181,19 @@
                         Hi, I'm Dilhara Madusanka, currently pursuing my undergraduate studies at the University of Vavuniya. My primary focus and passion lie in the field of Cybersecurity. I am actively combining my core programming skills in C, C++, C#, and Java with modern security concepts and UI/UX design to build robust, secure, and user-friendly software solutions.
                     </p>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
-                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-1 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-primary mb-2">Student</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">University of Vavuniya</p>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-1 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-primary mb-2">Security</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Cybersecurity Focus</p>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-1 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-primary mb-2">Backend</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">C#, Java, C, C++</p>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center">
+                        <div class="p-4 bg-gray-50 dark:bg-darkBg rounded-xl border border-gray-100 dark:border-gray-800 text-center hover:-translate-y-1 transition-transform duration-300">
                             <h3 class="text-2xl font-bold text-primary mb-2">Design</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400">Figma UI/UX</p>
                         </div>
@@ -201,78 +208,229 @@
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">My Skills</h2>
                     <div class="w-16 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                    <p class="mt-4 text-gray-600 dark:text-gray-400">A blend of technical expertise and interpersonal abilities.</p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    <!-- Programming Languages -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="ph ph-terminal text-primary"></i> Programming Languages
-                        </h3>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>C# (.NET, Windows Forms)</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>Java (Data Structures)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>C / C++</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                <!-- Technical Skills -->
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8 text-center"><iconify-icon icon="ph:code-bold" class="mr-2 text-primary"></iconify-icon>Technical Skills</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+                    <!-- Skill 1: C# -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:c-sharp" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">C# (.NET)</h3>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tools & Other Skills -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="ph ph-wrench text-primary"></i> Tools & Concepts
-                        </h3>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>Figma (UI/UX & Prototyping)</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>SQL & ADO.NET</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 text-sm font-medium">
-                                <span>Git & Version Control</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                    <!-- Skill 2: Java -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:java" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Java</h3>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Skill 3: C -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:c" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">C</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: C++ -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:c-plusplus" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">C++</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5: HTML -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:html-5" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">HTML</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 6: CSS -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-400 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:css-3" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">CSS</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 7: JavaScript -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(253,224,71,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:javascript" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">JavaScript</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 8: Figma UI/UX -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:figma" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Figma (UI/UX)</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 9: SQL & ADO.NET -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="vscode-icons:file-type-sql" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">SQL & ADO.NET</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 10: Git & GitHub -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-gray-600 via-gray-700 to-gray-900 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(75,85,99,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="logos:git-icon" class="text-3xl"></iconify-icon>
+                                </div>
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Git & Version Control</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8 text-center"><iconify-icon icon="ph:users-three-bold" class="mr-2 text-primary"></iconify-icon>Soft Skills</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- Soft Skill 1: Problem Solving -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:lightbulb-bold" class="text-3xl text-amber-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Problem Solving</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Analyzing issues and finding effective solutions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skill 2: Analytical Thinking -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:brain-bold" class="text-3xl text-indigo-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Analytical Thinking</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Breaking down complex cybersecurity threats.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skill 3: Teamwork -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-emerald-400 via-green-500 to-teal-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:users-three-bold" class="text-3xl text-emerald-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Team Collaboration</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Working effectively in group environments.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skill 4: Communication -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:chats-circle-bold" class="text-3xl text-sky-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Communication</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Clear expression of technical concepts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skill 5: Adaptability -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-pink-400 via-rose-500 to-red-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:arrows-clockwise-bold" class="text-3xl text-rose-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Adaptability</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Quick to learn new tech and methodologies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skill 6: Time Management -->
+                    <div class="relative group rounded-xl bg-gradient-to-r from-violet-400 via-purple-500 to-fuchsia-500 p-[2px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:-translate-y-2">
+                        <div class="bg-white dark:bg-darkSurface rounded-[10px] h-full p-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                                    <iconify-icon icon="ph:clock-bold" class="text-3xl text-purple-500"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-900 dark:text-white">Time Management</h3>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Meeting deadlines and organizing tasks efficiently.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -299,7 +457,7 @@
                                 <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">SQL</span>
                             </div>
                             <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
-                                View Details <i class="ph ph-arrow-right"></i>
+                                View Details <iconify-icon icon="ph:arrow-right-bold" class="ml-1"></iconify-icon>
                             </a>
                         </div>
                     </div>
@@ -317,7 +475,7 @@
                                 <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">OS Pipes</span>
                             </div>
                             <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
-                                View Details <i class="ph ph-arrow-right"></i>
+                                View Details <iconify-icon icon="ph:arrow-right-bold" class="ml-1"></iconify-icon>
                             </a>
                         </div>
                     </div>
@@ -335,7 +493,7 @@
                                 <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-xs rounded-full font-medium">UI/UX</span>
                             </div>
                             <a href="#" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 font-medium text-sm flex items-center gap-1 transition-colors">
-                                View Details <i class="ph ph-arrow-right"></i>
+                                View Details <iconify-icon icon="ph:arrow-right-bold" class="ml-1"></iconify-icon>
                             </a>
                         </div>
                     </div>
@@ -357,7 +515,7 @@
                     <div class="md:w-1/3 space-y-6">
                         <div class="flex items-start gap-4">
                             <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
-                                <i class="ph ph-envelope-simple text-2xl"></i>
+                                <iconify-icon icon="ph:envelope-simple-bold" class="text-2xl"></iconify-icon>
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900 dark:text-white">Email</h4>
@@ -366,7 +524,7 @@
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full flex items-center justify-center shrink-0">
-                                <i class="ph ph-map-pin text-2xl"></i>
+                                <iconify-icon icon="ph:map-pin-bold" class="text-2xl"></iconify-icon>
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900 dark:text-white">Location</h4>
@@ -410,10 +568,10 @@
             </p>
             <div class="flex space-x-4">
                 <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-darkBg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-blue-50 transition-colors">
-                    <i class="ph ph-github-logo text-xl"></i>
+                    <iconify-icon icon="mdi:github" class="text-2xl"></iconify-icon>
                 </a>
                 <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-darkBg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-blue-50 transition-colors">
-                    <i class="ph ph-linkedin-logo text-xl"></i>
+                    <iconify-icon icon="mdi:linkedin" class="text-2xl"></iconify-icon>
                 </a>
             </div>
         </div>
@@ -463,12 +621,11 @@
             const isHidden = mobileMenu.classList.contains('hidden');
             mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
             
+            // Iconify swap for menu icon
             if (isHidden) {
-                menuIcon.classList.remove('ph-x');
-                menuIcon.classList.add('ph-list');
+                menuIcon.setAttribute('icon', 'ph:list-bold');
             } else {
-                menuIcon.classList.remove('ph-list');
-                menuIcon.classList.add('ph-x');
+                menuIcon.setAttribute('icon', 'ph:x-bold');
             }
         }
 
